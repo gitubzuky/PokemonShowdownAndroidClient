@@ -3275,11 +3275,20 @@ public class BattleMessage {
                 break;
 
             case "-weather":
-                final String weather = split[0];
+                String get;
+                if (split[0].contains("ability")) {
+                    get = split[1].substring(0, split[1].indexOf("|"));
+                } else {
+                    get = split[0];
+                }
+
                 boolean upkeep = false;
-                if (split.length > 1) {
+                if (split.length > 1 && split[1].contains("upkeep")) {
                     upkeep = true;
                 }
+
+                final String weather = get;
+
                 animatorSet = new AnimatorSet();
                 switch (weather) {
                     case "RainDance":
