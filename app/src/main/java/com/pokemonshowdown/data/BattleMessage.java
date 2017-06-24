@@ -3077,7 +3077,8 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                battleFragment.getView().findViewById(battleFragment.getLastVisibleWebs(messageDetails, true)).setVisibility(View.VISIBLE);
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_webs : R.id.field_webs_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
                             }
                         });
                         break;
@@ -3215,7 +3216,8 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                battleFragment.getView().findViewById(battleFragment.getLastVisibleWebs(messageDetails, false)).setVisibility(View.INVISIBLE);
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_webs : R.id.field_webs_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
                             }
                         });
                         break;
