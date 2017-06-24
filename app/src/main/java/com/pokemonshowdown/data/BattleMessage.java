@@ -3071,7 +3071,17 @@ public class BattleMessage {
 
                     case "stickyweb":
                         toAppendBuilder.append("A sticky web spreads out beneath ").append(side).append("'s feet!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                battleFragment.getView().findViewById(battleFragment.getLastVisibleWebs(messageDetails, true)).setVisibility(View.VISIBLE);
+                            }
+                        });
                         break;
+
 
                     case "tailwind":
                         toAppendBuilder.append("The tailwind blew from behind ").append(side).append("!");
@@ -3199,6 +3209,15 @@ public class BattleMessage {
 
                     case "stickyweb":
                         toAppendBuilder.append("The sticky web has disappeared from beneath ").append(side).append("'s feet!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                battleFragment.getView().findViewById(battleFragment.getLastVisibleWebs(messageDetails, false)).setVisibility(View.INVISIBLE);
+                            }
+                        });
                         break;
 
                     case "tailwind":
@@ -3283,7 +3302,7 @@ public class BattleMessage {
                 }
 
                 boolean upkeep = false;
-                if (split.length > 1 && split[1].contains("upkeep")) {
+                             if (split.length > 1 && split[1].contains("upkeep")) {
                     upkeep = true;
                 }
 
