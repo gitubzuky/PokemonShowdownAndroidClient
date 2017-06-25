@@ -3071,18 +3071,7 @@ public class BattleMessage {
 
                     case "stickyweb":
                         toAppendBuilder.append("A sticky web spreads out beneath ").append(side).append("'s feet!");
-                        animatorSet.addListener(new AnimatorListenerWithNet() {
-                            @Override
-                            public void onAnimationStartWithNet(Animator animation) {
-                                if (battleFragment.getView() == null) {
-                                    return;
-                                }
-                                int id = (messageDetails.startsWith("p1")) ? R.id.field_webs : R.id.field_webs_o;
-                                battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
-                            }
-                        });
                         break;
-
 
                     case "tailwind":
                         toAppendBuilder.append("The tailwind blew from behind ").append(side).append("!");
@@ -3111,20 +3100,6 @@ public class BattleMessage {
                                     return;
                                 }
                                 int id = (messageDetails.startsWith("p1")) ? R.id.field_lightscreen : R.id.field_lightscreen_o;
-                                battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
-                            }
-                        });
-                        break;
-
-                    case "auroraveil":
-                        toAppendBuilder.append("Aurora Veil made the opposing team stronger against physical and special moves!");
-                        animatorSet.addListener(new AnimatorListenerWithNet() {
-                            @Override
-                            public void onAnimationStartWithNet(Animator animation) {
-                                if (battleFragment.getView() == null) {
-                                    return;
-                                }
-                                int id = (messageDetails.startsWith("p1")) ? R.id.field_auroraveil : R.id.field_auroraveil_o;
                                 battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
                             }
                         });
@@ -3224,16 +3199,6 @@ public class BattleMessage {
 
                     case "stickyweb":
                         toAppendBuilder.append("The sticky web has disappeared from beneath ").append(side).append("'s feet!");
-                        animatorSet.addListener(new AnimatorListenerWithNet() {
-                            @Override
-                            public void onAnimationStartWithNet(Animator animation) {
-                                if (battleFragment.getView() == null) {
-                                    return;
-                                }
-                                int id = (messageDetails.startsWith("p1")) ? R.id.field_webs : R.id.field_webs_o;
-                                battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
-                            }
-                        });
                         break;
 
                     case "tailwind":
@@ -3266,20 +3231,6 @@ public class BattleMessage {
                                     return;
                                 }
                                 int id = (messageDetails.startsWith("p1")) ? R.id.field_lightscreen : R.id.field_lightscreen_o;
-                                battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
-                            }
-                        });
-                        break;
-
-                    case "auroraveil":
-                        toAppendBuilder.append("Aurora Veil made your team stronger against physical and special moves!");
-                        animatorSet.addListener(new AnimatorListenerWithNet() {
-                            @Override
-                            public void onAnimationStartWithNet(Animator animation) {
-                                if (battleFragment.getView() == null) {
-                                    return;
-                                }
-                                int id = (messageDetails.startsWith("p1")) ? R.id.field_auroraveil : R.id.field_auroraveil_o;
                                 battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
                             }
                         });
@@ -3331,8 +3282,9 @@ public class BattleMessage {
                     get = split[0];
                 }
 
+
                 boolean upkeep = false;
-                             if (split.length > 1 && split[1].contains("upkeep")) {
+                if (split.length > 1 && split[1].contains("upkeep")) {
                     upkeep = true;
                 }
 
