@@ -3116,6 +3116,20 @@ public class BattleMessage {
                         });
                         break;
 
+                    case "auroraveil":
+                        toAppendBuilder.append("Aurora Veil made the opposing team stronger against physical and special moves!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_auroraveil : R.id.field_auroraveil_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
+                            }
+                        });
+                        break;
+
                     case "safeguard":
                         side = Character.toUpperCase(side.charAt(0)) + side.substring(1);
                         toAppendBuilder.append(side).append(" became cloaked in a mystical veil!");
@@ -3252,6 +3266,20 @@ public class BattleMessage {
                                     return;
                                 }
                                 int id = (messageDetails.startsWith("p1")) ? R.id.field_lightscreen : R.id.field_lightscreen_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
+                            }
+                        });
+                        break;
+
+                    case "auroraveil":
+                        toAppendBuilder.append("Aurora Veil made your team stronger against physical and special moves!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_auroraveil : R.id.field_auroraveil_o;
                                 battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
                             }
                         });
