@@ -452,9 +452,9 @@ public class BattleFragment extends Fragment {
                 }
             }
 
-            int[] p1Field = {R.id.field_lightscreen, R.id.field_reflect, R.id.field_rocks, R.id.field_spikes1,
+            int[] p1Field = {R.id.field_lightscreen, R.id.field_reflect, R.id.field_webs, R.id.field_auroraveil, R.id.field_rocks, R.id.field_spikes1,
                     R.id.field_spikes2, R.id.field_spikes3, R.id.field_tspikes1, R.id.field_tspikes2};
-            int[] p2Field = {R.id.field_lightscreen_o, R.id.field_reflect_o, R.id.field_rocks_o, R.id.field_spikes1_o,
+            int[] p2Field = {R.id.field_lightscreen_o, R.id.field_reflect_o, R.id.field_webs_o, R.id.field_auroraveil_o, R.id.field_rocks_o, R.id.field_spikes1_o,
                     R.id.field_spikes2_o, R.id.field_spikes3_o, R.id.field_tspikes1_o, R.id.field_tspikes2_o};
             for (int i = 0; i < p1Field.length; i++) {
                 int visibility;
