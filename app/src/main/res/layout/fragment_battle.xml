@@ -30,7 +30,7 @@
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
         android:alpha="0.5"
-        android:contentDescription="@string/terrain"
+        android:contentDescription="@string/weather"
         android:scaleType="fitCenter"/>
 
     <ImageView
