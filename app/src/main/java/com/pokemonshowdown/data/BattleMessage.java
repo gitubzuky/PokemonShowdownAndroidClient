@@ -3509,12 +3509,13 @@ public class BattleMessage {
 
                     case "electricterrain":
                         toAppendBuilder.append("An electric current runs across the battlefield!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
                             @Override
                             public void onAnimationStartWithNet(Animator animation) {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_electric);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.terrain_electric);
                             }
                         });
                         break;
@@ -3580,13 +3581,13 @@ public class BattleMessage {
 
                     case "electricterrain":
                         toAppendBuilder.append("The battlefield returned to normal.");
-                        animatorSet.addListener(new AnimatorListenerWithNet() {
                             @Override
                             public void onAnimationStartWithNet(Animator animation) {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
+                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
                             }
                         });
                         break;
