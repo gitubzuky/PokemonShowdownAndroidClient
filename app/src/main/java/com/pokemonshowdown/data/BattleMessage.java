@@ -3105,6 +3105,10 @@ public class BattleMessage {
                         });
                         break;
 
+                    case "auroraveil":
+                        toAppendBuilder.append("Aurora Veil made the opposing team stronger against physical and special moves!");
+                        break;
+
                     case "safeguard":
                         side = Character.toUpperCase(side.charAt(0)) + side.substring(1);
                         toAppendBuilder.append(side).append(" became cloaked in a mystical veil!");
@@ -3234,6 +3238,10 @@ public class BattleMessage {
                                 battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
                             }
                         });
+                        break;
+
+                    case "auroraveil":
+                        toAppendBuilder.append("Aurora Veil made your team stronger against physical and special moves!");
                         break;
 
                     case "safeguard":
@@ -3499,6 +3507,30 @@ public class BattleMessage {
                         toAppendBuilder.append("Fire's power was weakened!");
                         break;
 
+                    case "electricterrain":
+                        toAppendBuilder.append("An electric current runs across the battlefield!");
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_electric);
+                            }
+                        });
+                        break;
+
+                    case "psychicterrain":
+                        toAppendBuilder.append("The battlefield got weird!");
+                        break;
+
+                    case "grassyterrain":
+                        toAppendBuilder.append("Grass grew to cover the battlefield!");
+                        break;
+
+                    case "mistyterrain":
+                        toAppendBuilder.append("Mist swirls around the battlefield!");
+                        break;
+
                     default:
                         toAppendBuilder.append(battleFragment.getPrintable(split[0])).append(" started!");
                         break;
@@ -3544,6 +3576,31 @@ public class BattleMessage {
 
                     case "watersport":
                         toAppendBuilder.append("The effects of Water Sport have faded.");
+                        break;
+
+                    case "electricterrain":
+                        toAppendBuilder.append("The battlefield returned to normal.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
+                            }
+                        });
+                        break;
+
+                    case "psychicterrain":
+                        toAppendBuilder.append("The battlefield returned to normal.");
+                        break;
+
+                    case "grassyterrain":
+                        toAppendBuilder.append("The grass disappeared from the battlefield.");
+                        break;
+
+                    case "mistyterrain":
+                        toAppendBuilder.append("The battlefield returned to normal.");
                         break;
 
                     default:
