@@ -3509,6 +3509,15 @@ public class BattleMessage {
 
                     case "electricterrain":
                         toAppendBuilder.append("An electric current runs across the battlefield!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.weather_electric);
+                            }
+                        });
                         break;
 
                     case "psychicterrain":
@@ -3572,6 +3581,16 @@ public class BattleMessage {
 
                     case "electricterrain":
                         toAppendBuilder.append("The battlefield returned to normal.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
+                            }
+                        });
                         break;
 
                     case "psychicterrain":
