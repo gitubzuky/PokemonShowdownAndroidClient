@@ -3522,14 +3522,41 @@ public class BattleMessage {
 
                     case "psychicterrain":
                         toAppendBuilder.append("The battlefield got weird!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.weather_psychic);
+                            }
+                        });
                         break;
 
                     case "grassyterrain":
                         toAppendBuilder.append("Grass grew to cover the battlefield!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.weather_grassy);
+                            }
+                        });
                         break;
 
                     case "mistyterrain":
                         toAppendBuilder.append("Mist swirls around the battlefield!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.weather_misty);
+                            }
+                        });
                         break;
 
                     default:
@@ -3595,14 +3622,44 @@ public class BattleMessage {
 
                     case "psychicterrain":
                         toAppendBuilder.append("The battlefield returned to normal.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
+                            }
+                        });
                         break;
 
                     case "grassyterrain":
                         toAppendBuilder.append("The grass disappeared from the battlefield.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
+                            }
+                        });
                         break;
 
                     case "mistyterrain":
                         toAppendBuilder.append("The battlefield returned to normal.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
+                            }
+                        });
                         break;
 
                     default:
