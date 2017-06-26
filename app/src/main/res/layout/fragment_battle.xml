@@ -24,6 +24,16 @@
         android:scaleType="fitCenter"/>
 
     <ImageView
+        android:id="@+id/battle_terrain"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:alpha="0.5"
+        android:contentDescription="@string/terrain"
+        android:scaleType="fitCenter"/>
+
+    <ImageView
         android:id="@+id/avatar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
