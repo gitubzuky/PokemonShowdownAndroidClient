@@ -26,6 +26,16 @@
         android:src="@drawable/field_lightscreen"
         android:visibility="invisible"/>
 
+    <ImageView
+        android:id="@+id/field_auroraveil"
+        android:layout_width="192dp"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="56dp"
+        android:contentDescription="@string/dmg_calc_field_lightscreen"
+        android:src="@drawable/field_auroraveil"
+        android:visibility="invisible"/>
+
     <TextView
         android:id="@+id/toast"
         android:layout_width="wrap_content"
@@ -491,6 +501,18 @@
         android:visibility="invisible"/>
 
     <ImageView
+        android:id="@+id/field_webs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/p1a"
+        android:layout_alignRight="@id/p1a"
+        android:layout_marginRight="8dp"
+        android:alpha="0.6"
+        android:contentDescription="@string/dmg_calc_field_sr"
+        android:src="@drawable/field_webs"
+        android:visibility="invisible"/>
+
+    <ImageView
         android:id="@+id/field_spikes1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -561,6 +583,18 @@
         android:visibility="invisible"/>
 
     <ImageView
+        android:id="@+id/field_webs_o"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/p2a"
+        android:layout_alignLeft="@id/p2a"
+        android:layout_marginLeft="8dp"
+        android:alpha="0.6"
+        android:contentDescription="@string/dmg_calc_field_sr"
+        android:src="@drawable/field_webs"
+        android:visibility="invisible"/>
+
+    <ImageView
         android:id="@+id/field_spikes1_o"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -627,6 +661,17 @@
         android:layout_marginTop="80dp"
         android:contentDescription="@string/dmg_calc_field_reflect"
         android:src="@drawable/field_reflect"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/field_auroraveil_o"
+        android:layout_width="192dp"
+        android:layout_height="72dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/dmg_calc_field_reflect"
+        android:src="@drawable/field_auroraveil"
         android:visibility="invisible"/>
 
     <ImageView
