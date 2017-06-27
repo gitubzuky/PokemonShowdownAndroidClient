@@ -3071,6 +3071,16 @@ public class BattleMessage {
 
                     case "stickyweb":
                         toAppendBuilder.append("A sticky web spreads out beneath ").append(side).append("'s feet!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_webs : R.id.field_webs_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
+                            }
+                        });
                         break;
 
                     case "tailwind":
@@ -3107,6 +3117,16 @@ public class BattleMessage {
 
                     case "auroraveil":
                         toAppendBuilder.append("Aurora Veil made the opposing team stronger against physical and special moves!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_auroraveil : R.id.field_auroraveil_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
+                            }
+                        });
                         break;
 
                     case "safeguard":
@@ -3203,6 +3223,16 @@ public class BattleMessage {
 
                     case "stickyweb":
                         toAppendBuilder.append("The sticky web has disappeared from beneath ").append(side).append("'s feet!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_webs : R.id.field_webs_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
+                            }
+                        });
                         break;
 
                     case "tailwind":
@@ -3241,7 +3271,18 @@ public class BattleMessage {
                         break;
 
                     case "auroraveil":
-                        toAppendBuilder.append("Aurora Veil made your team stronger against physical and special moves!");
+                        side = Character.toUpperCase(side.charAt(0)) + side.substring(1);
+                        toAppendBuilder.append(side).append("'s Aurora Veil wore off!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_auroraveil : R.id.field_auroraveil_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
+                            }
+                        });
                         break;
 
                     case "safeguard":
@@ -3515,7 +3556,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.weather_electric);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_electric);
                             }
                         });
                         break;
@@ -3528,7 +3569,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.weather_psychic);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_psychic);
                             }
                         });
                         break;
@@ -3541,7 +3582,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.weather_grassy);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_grassy);
                             }
                         });
                         break;
@@ -3554,7 +3595,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(R.drawable.weather_misty);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_misty);
                             }
                         });
                         break;
@@ -3614,8 +3655,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
                             }
                         });
                         break;
@@ -3628,8 +3668,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
                             }
                         });
                         break;
@@ -3642,8 +3681,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
                             }
                         });
                         break;
@@ -3656,8 +3694,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                int id = new Random().nextInt(BattleFragment.BACKGROUND_LIBRARY.length);
-                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_background)).setImageResource(BattleFragment.BACKGROUND_LIBRARY[id]);
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
                             }
                         });
                         break;
