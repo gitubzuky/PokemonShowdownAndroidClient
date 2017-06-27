@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
-        android:alpha="0.5"
+        android:alpha="0.7"
         android:contentDescription="@string/weather"
         android:scaleType="fitCenter"/>
 
@@ -239,14 +239,13 @@
 
     <TextView
         android:id="@+id/weather"
-        style="@style/text_shadow_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/battle_interface"
         android:layout_below="@id/turn"
         android:layout_marginLeft="12dp"
         android:textSize="14sp"
-        android:textStyle="italic"/>
+        android:textStyle="bold"/>
 
     <FrameLayout
         android:id="@+id/action_interface"
