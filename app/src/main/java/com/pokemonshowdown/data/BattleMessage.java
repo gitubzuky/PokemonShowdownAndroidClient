@@ -3461,6 +3461,7 @@ public class BattleMessage {
                                     if (battleFragment.getView() == null) {
                                         return;
                                     }
+                                    ((ImageView) battleFragment.getView().findViewById(R.id.weather_background)).setImageResource(R.drawable.weather_strongwind);
                                     ((TextView) battleFragment.getView().findViewById(R.id.weather)).setText(weather);
                                 }
                             });
