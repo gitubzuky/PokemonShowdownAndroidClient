@@ -1397,7 +1397,7 @@ public class BattleMessage {
                 toast.addListener(new AnimatorListenerWithNet() {
                     @Override
                     public void onAnimationStartWithNet(Animator animation) {
-                        battleFragment.copyBoost(split[0], split[1], BattleFragment.STATS);
+                        battleFragment.copyBoost(split[0], split[1]);
                     }
                 });
                 battleFragment.startAnimation(toast, message);
