@@ -55,18 +55,4 @@ android {
    lintOptions {
      abortOnError false
    }
-
-signingConfigs {
-   release {
-       storeFile file("keystore.jks)
-       storePassword "showdown"
-        keyAlias "smogon"
-        keyPassword "showdown"
-    }
-}
-buildTypes {
-        release {
-            signingConfig signingConfigs.release
-         }
-}
 }
