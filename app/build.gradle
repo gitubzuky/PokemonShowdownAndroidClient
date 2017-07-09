@@ -9,7 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 29
-        versionName '2.2'
+        versionName '2.3'
     }
     buildTypes {
         release {
@@ -50,8 +50,23 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.5'
     compile files('libs/android-integration-3.1.0.jar')
 }
+
 android {
    lintOptions {
      abortOnError false
    }
+
+signingConfigs {
+   release {
+       storeFile file("keystore.jks)
+       storePassword "showdown"
+        keyAlias "smogon"
+        keyPassword "showdown"
+    }
+}
+buildTypes {
+        release {
+            signingConfig signingConfigs.release
+         }
+}
 }
