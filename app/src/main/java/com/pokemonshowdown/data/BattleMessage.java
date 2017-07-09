@@ -269,6 +269,9 @@ public class BattleMessage {
                     teamSelectionSize = 0;
                 }
 
+                final ArrayList<PokemonInfo> t1 = battleFragment.getPlayer1Team();
+                final ArrayList<PokemonInfo> t2 = battleFragment.getPlayer2Team();
+
                 final int teamSelectionSizeFinal = teamSelectionSize;
                 battleFragment.getActivity().runOnUiThread(new RunWithNet() {
                     @Override
