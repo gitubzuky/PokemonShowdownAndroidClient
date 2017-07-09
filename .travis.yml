@@ -16,6 +16,22 @@ before_install:
 script:
 - ./gradlew build assembleRelease
 
+before_deploy:
+
+- cp $TRAVIS_BUILD_DIR/keystore.jks $HOME
+
+- cd app/build/outputs/apk/
+
+- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/keystore.jks -storepass showdown -keypass showdown app-release-unsigned.apk smogon
+
+
+# Verification
+
+- jarsigner -verify app-release-unsigned.apk
+
+- "${ANDROID_HOME}/build-tools/24.0.0/zipalign -v 4 app-release-unsigned.apk app-release.apk"
+
+
 deploy:
   provider: releases
   api_key:
