@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
-        android:alpha="0.7"
+        android:alpha="0.8"
         android:contentDescription="@string/weather"
         android:scaleType="fitCenter"/>
 

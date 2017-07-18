@@ -495,7 +495,7 @@
         android:layout_alignBottom="@id/p1a"
         android:layout_alignRight="@id/p1a"
         android:layout_marginRight="8dp"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_rocks"
         android:visibility="invisible"/>
@@ -508,7 +508,7 @@
         android:layout_alignBottom="@id/p1a"
         android:layout_marginLeft="8dp"
         android:layout_toRightOf="@id/p1a"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_spikes"
         android:visibility="invisible"/>
@@ -520,7 +520,7 @@
         android:layout_alignBottom="@id/p1a"
         android:layout_marginBottom="16dp"
         android:layout_toRightOf="@id/p1a"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_spikes"
         android:visibility="invisible"/>
@@ -532,7 +532,7 @@
         android:layout_alignBottom="@id/field_rocks"
         android:layout_marginRight="8dp"
         android:layout_toLeftOf="@id/field_rocks"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_webs"
         android:visibility="invisible"/>
@@ -544,7 +544,7 @@
         android:layout_alignBottom="@id/field_rocks"
         android:layout_marginBottom="16dp"
         android:layout_toLeftOf="@id/field_rocks"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_spikes"
         android:visibility="invisible"/>
@@ -555,7 +555,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/field_spikes1"
         android:layout_toRightOf="@id/field_spikes1"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_tspikes"
         android:visibility="invisible"/>
@@ -566,7 +566,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/field_spikes2"
         android:layout_toRightOf="@id/field_spikes2"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_tspikes"
         android:visibility="invisible"/>
@@ -578,7 +578,7 @@
         android:layout_alignBottom="@id/p2a"
         android:layout_alignLeft="@id/p2a"
         android:layout_marginLeft="8dp"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_rocks"
         android:visibility="invisible"/>
@@ -590,7 +590,7 @@
         android:layout_alignBottom="@id/p2a"
         android:layout_marginRight="8dp"
         android:layout_toLeftOf="@id/p2a"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_spikes"
         android:visibility="invisible"/>
@@ -602,7 +602,7 @@
         android:layout_alignBottom="@id/p2a"
         android:layout_marginBottom="16dp"
         android:layout_toLeftOf="@id/p2a"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_spikes"
         android:visibility="invisible"/>
@@ -614,7 +614,7 @@
         android:layout_alignBottom="@id/field_rocks_o"
         android:layout_marginLeft="8dp"
         android:layout_toRightOf="@id/field_rocks_o"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_webs"
         android:visibility="invisible"/>
@@ -626,7 +626,7 @@
         android:layout_alignBottom="@id/field_rocks_o"
         android:layout_marginBottom="16dp"
         android:layout_toRightOf="@id/field_rocks_o"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_spikes"
         android:visibility="invisible"/>
@@ -637,7 +637,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/field_spikes1_o"
         android:layout_toLeftOf="@id/field_spikes1_o"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_tspikes"
         android:visibility="invisible"/>
@@ -648,7 +648,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/field_spikes2_o"
         android:layout_toLeftOf="@id/field_spikes2_o"
-        android:alpha="0.6"
+        android:alpha="1"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_tspikes"
         android:visibility="invisible"/>
