@@ -500,6 +500,18 @@
         android:src="@drawable/field_rocks"
         android:visibility="invisible"/>
 
+    <ImageView
+        android:id="@+id/field_webs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/field_rocks"
+        android:layout_alignLeft="@id/p1a"
+        android:layout_toLeftOf="@id/field_rocks"
+        android:layout_marginBottom="16dp"
+        android:alpha="0.8"
+        android:contentDescription="@string/dmg_calc_field_sr"
+        android:src="@drawable/field_webs"
+        android:visibility="invisible"/>
 
     <ImageView
         android:id="@+id/field_spikes1"
@@ -538,18 +550,6 @@
         android:visibility="invisible"/>
 
     <ImageView
-        android:id="@+id/field_webs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/field_rocks"
-        android:layout_marginBottom="16dp"
-        android:layout_toLeftOf="@id/p1a"
-        android:alpha="0.8"
-        android:contentDescription="@string/dmg_calc_field_sr"
-        android:src="@drawable/field_webs"
-        android:visibility="invisible"/>
-
-    <ImageView
         android:id="@+id/field_tspikes1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -581,6 +581,19 @@
         android:alpha="0.8"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_rocks"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/field_webs_o"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/field_rocks_o"
+        android:layout_alignRight="@id/p2a"
+        android:layout_toRightOf="@id/field_rocks_o"
+        android:layout_marginBottom="16dp"
+        android:alpha="0.8"
+        android:contentDescription="@string/dmg_calc_field_sr"
+        android:src="@drawable/field_webs"
         android:visibility="invisible"/>
 
     <ImageView
@@ -617,18 +630,6 @@
         android:alpha="0.8"
         android:contentDescription="@string/dmg_calc_field_sr"
         android:src="@drawable/field_spikes"
-        android:visibility="invisible"/>
-
-    <ImageView
-        android:id="@+id/field_webs_o"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/field_rocks_o"
-        android:layout_marginBottom="16dp"
-        android:layout_toRightOf="@id/p2a"
-        android:alpha="0.8"
-        android:contentDescription="@string/dmg_calc_field_sr"
-        android:src="@drawable/field_webs"
         android:visibility="invisible"/>
 
     <ImageView
