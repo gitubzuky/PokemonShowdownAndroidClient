@@ -247,7 +247,7 @@
         android:padding="2dp"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:visibility="invisible"/>
+        android:visibility="gone"/>
 
     <FrameLayout
         android:id="@+id/action_interface"
