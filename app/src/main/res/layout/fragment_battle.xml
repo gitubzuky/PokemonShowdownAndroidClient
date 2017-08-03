@@ -239,13 +239,14 @@
 
     <TextView
         android:id="@+id/weather"
+        style ="@style/text_shadow_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/battle_interface"
         android:layout_below="@id/turn"
         android:layout_marginLeft = "12dp"
         android:textSize="12sp"
-        android:textStyle="bolditalic"/>
+        android:textStyle="bold"/>
 
     <FrameLayout
         android:id="@+id/action_interface"
