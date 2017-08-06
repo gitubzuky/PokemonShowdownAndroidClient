@@ -3088,6 +3088,15 @@ public class BattleMessage {
 
                     case "tailwind":
                         toAppendBuilder.append("The tailwind blew from behind ").append(side).append("!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                    ((TextView) battleFragment.getView().findViewById(R.id.tailwind)).setText(tailwind);
+                            }
+                        });
                         break;
 
                     case "reflect":
@@ -3241,6 +3250,15 @@ public class BattleMessage {
                     case "tailwind":
                         side = Character.toUpperCase(side.charAt(0)) + side.substring(1);
                         toAppendBuilder.append(side).append("'s tailwind petered out!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                    ((TextView) battleFragment.getView().findViewById(R.id.tailwind)).setText(null);
+                            }
+                        });
                         break;
 
                     case "reflect":
@@ -3542,6 +3560,15 @@ public class BattleMessage {
 
                     case "gravity":
                         toAppendBuilder.append("Gravity intensified!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                    ((TextView) battleFragment.getView().findViewById(R.id.gravity)).setText(gravity);
+                            }
+                        });
                         break;
 
                     case "mudsport":
@@ -3641,6 +3668,15 @@ public class BattleMessage {
 
                     case "gravity":
                         toAppendBuilder.append("Gravity returned to normal!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                    ((TextView) battleFragment.getView().findViewById(R.id.gravity)).setText(null);
+                            }
+                        });
                         break;
 
                     case "mudsport":
