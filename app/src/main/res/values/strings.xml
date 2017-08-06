@@ -245,5 +245,6 @@
     <string name="animation">Animation</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="use_z_move">Use Z-Move</string>
-
+    <string name="tailwind">Tailwind</string>
+    <string name="gravity">Gravity</string>
 </resources>
