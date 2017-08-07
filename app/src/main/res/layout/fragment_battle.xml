@@ -256,8 +256,7 @@
         android:layout_below="@id/weather"
         android:layout_marginLeft="12dp"
         android:textSize="14sp"
-        android:background="@android:color/holo_blue_light"
-        android:text="@string/gravity" 
+        android:background="@android:color/holo_blue_light" 
         android:textStyle="bold"/>
 
     <FrameLayout
@@ -315,8 +314,7 @@
         android:layout_below="@id/timer"
         android:layout_marginRight="12dp"
         android:textSize="14sp"
-        android:background="@android:color/holo_blue_light"
-        android:text="@string/tailwind" 
+        android:background="@android:color/holo_blue_light" 
         android:textStyle="bold"/>
 
 </RelativeLayout>
