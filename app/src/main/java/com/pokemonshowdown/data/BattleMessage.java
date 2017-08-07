@@ -3094,7 +3094,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                    ((TextView) battleFragment.getView().findViewById(R.id.tail_wind)).setText(tailwind);
+                                    ((TextView) battleFragment.getView().findViewById(R.id.tail_wind)).setText("tailwind");
                             }
                         });
                         break;
@@ -3566,7 +3566,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                    ((TextView) battleFragment.getView().findViewById(R.id.gra_vity)).setText(gravity);
+                                    ((TextView) battleFragment.getView().findViewById(R.id.gra_vity)).setText("gravity");
                             }
                         });
                         break;
