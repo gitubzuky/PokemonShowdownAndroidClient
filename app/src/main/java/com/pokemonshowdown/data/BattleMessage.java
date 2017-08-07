@@ -3094,7 +3094,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                    ((TextView) battleFragment.getView().findViewById(R.id.tailwind)).setText(tailwind);
+                                    ((TextView) battleFragment.getView().findViewById(R.id.tail_wind)).setText(tailwind);
                             }
                         });
                         break;
@@ -3256,7 +3256,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                    ((TextView) battleFragment.getView().findViewById(R.id.tailwind)).setText(null);
+                                    ((TextView) battleFragment.getView().findViewById(R.id.tail_wind)).setText(null);
                             }
                         });
                         break;
@@ -3566,7 +3566,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                    ((TextView) battleFragment.getView().findViewById(R.id.gravity)).setText(gravity);
+                                    ((TextView) battleFragment.getView().findViewById(R.id.gra_vity)).setText(gravity);
                             }
                         });
                         break;
@@ -3674,7 +3674,7 @@ public class BattleMessage {
                                 if (battleFragment.getView() == null) {
                                     return;
                                 }
-                                    ((TextView) battleFragment.getView().findViewById(R.id.gravity)).setText(null);
+                                    ((TextView) battleFragment.getView().findViewById(R.id.gra_vity)).setText(null);
                             }
                         });
                         break;
