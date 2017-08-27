@@ -452,9 +452,9 @@ public class BattleFragment extends Fragment {
                 }
             }
 
-            int[] p1Field = {R.id.field_lightscreen, R.id.field_auroraveil, R.id.field_reflect, R.id.field_rocks, R.id.field_webs, R.id.field_spikes1,
+            int[] p1Field = {R.id.field_lightscreen, R.id.field_reflect, R.id.field_rocks, R.id.field_spikes1,
                     R.id.field_spikes2, R.id.field_spikes3, R.id.field_tspikes1, R.id.field_tspikes2};
-            int[] p2Field = {R.id.field_lightscreen_o, R.id.field_auroraveil_o, R.id.field_reflect_o, R.id.field_rocks_o, R.id.field_webs_o, R.id.field_spikes1_o,
+            int[] p2Field = {R.id.field_lightscreen_o, R.id.field_reflect_o, R.id.field_rocks_o, R.id.field_spikes1_o,
                     R.id.field_spikes2_o, R.id.field_spikes3_o, R.id.field_tspikes1_o, R.id.field_tspikes2_o};
             for (int i = 0; i < p1Field.length; i++) {
                 int visibility;
@@ -498,6 +498,10 @@ public class BattleFragment extends Fragment {
         if (getView() == null) {
             return null;
         }
+        String logMessage = message.toString();
+        if (logMessage.equals("upkeep") || logMessage.contains("choice|")) {
+            return new AnimatorSet();
+        }
         TextView textView = (TextView) getView().findViewById(R.id.toast);
 
         ObjectAnimator fadeIn = ObjectAnimator.ofFloat(textView, "alpha", 0f, 1f);
@@ -524,16 +528,52 @@ public class BattleFragment extends Fragment {
         });
         return animation;
     }
+    public void makeChatToast(String user, String message) {
+        if (mReceivedMessages == null) {
+            mReceivedMessages = new ArrayList<>();
+        }
+
+        if (!mReceivedMessages.contains(message)) {
+            mReceivedMessages.add(message);
+            LayoutInflater inflater = getLayoutInflater(null);
+            View layout = inflater.inflate(R.layout.dialog_custom_chat_toast,
+                    (ViewGroup) getView().findViewById(R.id.custom_toast_container));
+
+            TextView text = (TextView) layout.findViewById(R.id.user);
+            text.setText("User \"" + user + "\" said: ");
+            text.setTextColor(ChatRoomFragment.getColorStrong(user));
+
+            TextView said = (TextView) layout.findViewById(R.id.message);
+            said.setText(message);
+
+            Toast toast = new Toast(getContext());
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
+        }
+    }
 
     public AnimatorSet makeToast(final String message) {
+        String logMessage = message.toString();
+        if (logMessage.equals("upkeep") || logMessage.contains("choice|")) {
+            return new AnimatorSet();
+        }
         return makeToast(message, ANIMATION_LONG);
     }
 
     public AnimatorSet makeToast(final String message, final int duration) {
+        String logMessage = message.toString();
+        if (logMessage.equals("upkeep") || logMessage.contains("choice|")) {
+            return new AnimatorSet();
+        }
         return makeToast(new SpannableString(message), duration);
     }
 
     public AnimatorSet makeToast(final Spannable message, final int duration) {
+        String logMessage = message.toString();
+        if (logMessage.equals("upkeep") || logMessage.contains("choice|")) {
+            return new AnimatorSet();
+        }
         if (getView() == null) {
             return null;
         }
@@ -628,6 +668,10 @@ public class BattleFragment extends Fragment {
     }
 
     public void addToLog(Spannable logMessage) {
+        String message = logMessage.toString();
+        if (message.equals("upkeep") || message.contains("choice|")) {
+            return;
+        }
         BattleFieldData.BattleLog battleLog = BattleFieldData.get(getActivity()).getRoomInstance(mRoomId);
         if (battleLog != null && battleLog.isMessageListener()) {
             if (logMessage.length() > 0) {
