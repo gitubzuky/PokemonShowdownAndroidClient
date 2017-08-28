@@ -78,6 +78,7 @@ public class BattleFragment extends Fragment {
     private boolean mTimer;
     private String mPlayer1;
     private String mPlayer2;
+    private ArrayList<String> mReceivedMessages;
     private ArrayList<PokemonInfo> mPlayer1Team = new ArrayList<>();
     private ArrayList<PokemonInfo> mPlayer2Team = new ArrayList<>();
     private String mCurrentWeather;
@@ -230,9 +231,11 @@ public class BattleFragment extends Fragment {
                 if (mTimer) {
                     timer.setBackgroundResource(R.drawable.editable_frame_light_red);
                     MyApplication.getMyApplication().sendClientMessage(mRoomId + "|/timer on");
+                    Toast.makeText(getContext(), "Battle timer is now ON", Toast.LENGTH_SHORT).show();
                 } else {
                     timer.setBackgroundResource(R.drawable.uneditable_frame_red);
                     MyApplication.getMyApplication().sendClientMessage(mRoomId + "|/timer off");
+                    Toast.makeText(getContext(), "Battle timer is now OFF", Toast.LENGTH_SHORT).show();
                 }
                 if (getAnimatorSetQueue().isEmpty() && getRequestJson() != null) {
                     startRequest();
