@@ -513,6 +513,16 @@ public class BattleMessage {
                 //TODO need to handle roar & cie
                 toAppendBuilder = new StringBuilder();
 
+                int tempHp;
+                String tempStatus;
+                try {
+                    tempHp = processHpFraction(split[2]);
+                    tempStatus = processStatusFraction(split[2]);
+                } catch (ArrayIndexOutOfBoundsException ex) { // zoroark's transform
+                    tempHp = processHpFraction(split[0]);
+                    tempStatus = processStatusFraction(split[0]);
+                }
+
                 final int hp = processHpFraction(split[2]);
                 final String status = processStatusFraction(split[2]);
 
