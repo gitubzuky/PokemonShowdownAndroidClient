@@ -2,18 +2,20 @@
     android:id="@+id/custom_toast_container"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FFDEDEDE"
+    android:background="#FFFFFFFF"
     android:orientation="horizontal"
     android:padding="8dp">
 
     <TextView
         android:id="@+id/user"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" 
+        android:textStyle = "bold" />
 
     <TextView
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FF090808" />
+        android:textColor="#FF000000" 
+        android:textStyle = "bold" />
 </LinearLayout>
