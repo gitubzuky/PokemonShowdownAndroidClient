@@ -535,7 +535,7 @@ public class BattleFragment extends Fragment {
             View layout = inflater.inflate(R.layout.dialog_custom_chat_toast,
                     (ViewGroup) getView().findViewById(R.id.custom_toast_container));
             TextView text = (TextView) layout.findViewById(R.id.user);
-            text.setText("User \"" + user + "\" said: ");
+            text.setText("user + "\" said: ");
             text.setTextColor(ChatRoomFragment.getColorStrong(user));
             TextView said = (TextView) layout.findViewById(R.id.message);
             said.setText(message);
