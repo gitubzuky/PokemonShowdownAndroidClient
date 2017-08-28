@@ -270,6 +270,9 @@ public class BattleMessage {
                     teamSelectionSize = 0;
                 }
 
+                final ArrayList<PokemonInfo> t1 = battleFragment.getPlayer1Team();
+                final ArrayList<PokemonInfo> t2 = battleFragment.getPlayer2Team();
+
                 final int teamSelectionSizeFinal = teamSelectionSize;
                 battleFragment.getActivity().runOnUiThread(new RunWithNet() {
                     @Override
@@ -3072,10 +3075,29 @@ public class BattleMessage {
 
                     case "stickyweb":
                         toAppendBuilder.append("A sticky web spreads out beneath ").append(side).append("'s feet!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_webs : R.id.field_webs_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
+                            }
+                        });
                         break;
 
                     case "tailwind":
                         toAppendBuilder.append("The tailwind blew from behind ").append(side).append("!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                    ((TextView) battleFragment.getView().findViewById(R.id.tail_wind)).setText("Tailwind");
+                            }
+                        });
                         break;
 
                     case "reflect":
@@ -3101,6 +3123,20 @@ public class BattleMessage {
                                     return;
                                 }
                                 int id = (messageDetails.startsWith("p1")) ? R.id.field_lightscreen : R.id.field_lightscreen_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
+                            }
+                        });
+                        break;
+
+                    case "auroraveil":
+                        toAppendBuilder.append("Aurora Veil made the opposing team stronger against physical and special moves!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_auroraveil : R.id.field_auroraveil_o;
                                 battleFragment.getView().findViewById(id).setVisibility(View.VISIBLE);
                             }
                         });
@@ -3200,11 +3236,30 @@ public class BattleMessage {
 
                     case "stickyweb":
                         toAppendBuilder.append("The sticky web has disappeared from beneath ").append(side).append("'s feet!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_webs : R.id.field_webs_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
+                            }
+                        });
                         break;
 
                     case "tailwind":
                         side = Character.toUpperCase(side.charAt(0)) + side.substring(1);
                         toAppendBuilder.append(side).append("'s tailwind petered out!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                    ((TextView) battleFragment.getView().findViewById(R.id.tail_wind)).setText(null);
+                            }
+                        });
                         break;
 
                     case "reflect":
@@ -3232,6 +3287,21 @@ public class BattleMessage {
                                     return;
                                 }
                                 int id = (messageDetails.startsWith("p1")) ? R.id.field_lightscreen : R.id.field_lightscreen_o;
+                                battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
+                            }
+                        });
+                        break;
+
+                    case "auroraveil":
+                        side = Character.toUpperCase(side.charAt(0)) + side.substring(1);
+                        toAppendBuilder.append(side).append("'s Aurora Veil wore off!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                int id = (messageDetails.startsWith("p1")) ? R.id.field_auroraveil : R.id.field_auroraveil_o;
                                 battleFragment.getView().findViewById(id).setVisibility(View.INVISIBLE);
                             }
                         });
@@ -3276,11 +3346,21 @@ public class BattleMessage {
                 break;
 
             case "-weather":
-                final String weather = split[0];
+                String get;
+                if (split[0].contains("ability")) {
+                    get = split[1].substring(0, split[1].indexOf("|"));
+                } else {
+                    get = split[0];
+                }
+
+
                 boolean upkeep = false;
-                if (split.length > 1) {
+                if (split.length > 1 && split[1].contains("upkeep")) {
                     upkeep = true;
                 }
+
+                final String weather = get;
+
                 animatorSet = new AnimatorSet();
                 switch (weather) {
                     case "RainDance":
@@ -3403,6 +3483,7 @@ public class BattleMessage {
                                     if (battleFragment.getView() == null) {
                                         return;
                                     }
+                                    ((ImageView) battleFragment.getView().findViewById(R.id.weather_background)).setImageResource(R.drawable.weather_strongwind);
                                     ((TextView) battleFragment.getView().findViewById(R.id.weather)).setText(weather);
                                 }
                             });
@@ -3480,6 +3561,15 @@ public class BattleMessage {
 
                     case "gravity":
                         toAppendBuilder.append("Gravity intensified!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                    ((TextView) battleFragment.getView().findViewById(R.id.gra_vity)).setText("Gravity");
+                            }
+                        });
                         break;
 
                     case "mudsport":
@@ -3488,6 +3578,58 @@ public class BattleMessage {
 
                     case "watersport":
                         toAppendBuilder.append("Fire's power was weakened!");
+                        break;
+
+                    case "electricterrain":
+                        toAppendBuilder.append("An electric current runs across the battlefield!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_electric);
+                            }
+                        });
+                        break;
+
+                    case "psychicterrain":
+                        toAppendBuilder.append("The battlefield got weird!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_psychic);
+                            }
+                        });
+                        break;
+
+                    case "grassyterrain":
+                        toAppendBuilder.append("Grass grew to cover the battlefield!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_grassy);
+                            }
+                        });
+                        break;
+
+                    case "mistyterrain":
+                        toAppendBuilder.append("Mist swirls around the battlefield!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(R.drawable.terrain_misty);
+                            }
+                        });
                         break;
 
                     default:
@@ -3527,6 +3669,15 @@ public class BattleMessage {
 
                     case "gravity":
                         toAppendBuilder.append("Gravity returned to normal!");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                    ((TextView) battleFragment.getView().findViewById(R.id.gra_vity)).setText(null);
+                            }
+                        });
                         break;
 
                     case "mudsport":
@@ -3535,6 +3686,58 @@ public class BattleMessage {
 
                     case "watersport":
                         toAppendBuilder.append("The effects of Water Sport have faded.");
+                        break;
+
+                    case "electricterrain":
+                        toAppendBuilder.append("The battlefield returned to normal.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
+                            }
+                        });
+                        break;
+
+                    case "psychicterrain":
+                        toAppendBuilder.append("The battlefield returned to normal.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
+                            }
+                        });
+                        break;
+
+                    case "grassyterrain":
+                        toAppendBuilder.append("The grass disappeared from the battlefield.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
+                            }
+                        });
+                        break;
+
+                    case "mistyterrain":
+                        toAppendBuilder.append("The battlefield returned to normal.");
+                        animatorSet.addListener(new AnimatorListenerWithNet() {
+                            @Override
+                            public void onAnimationStartWithNet(Animator animation) {
+                                if (battleFragment.getView() == null) {
+                                    return;
+                                }
+                                ((ImageView) battleFragment.getView().findViewById(R.id.battle_terrain)).setImageResource(0);
+                            }
+                        });
                         break;
 
                     default:
