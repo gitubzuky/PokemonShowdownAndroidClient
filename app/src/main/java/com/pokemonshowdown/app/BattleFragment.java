@@ -231,11 +231,9 @@ public class BattleFragment extends Fragment {
                 if (mTimer) {
                     timer.setBackgroundResource(R.drawable.editable_frame_light_red);
                     MyApplication.getMyApplication().sendClientMessage(mRoomId + "|/timer on");
-                    Toast.makeText(getContext(), "Battle timer is now ON", Toast.LENGTH_SHORT).show();
                 } else {
                     timer.setBackgroundResource(R.drawable.uneditable_frame_red);
                     MyApplication.getMyApplication().sendClientMessage(mRoomId + "|/timer off");
-                    Toast.makeText(getContext(), "Battle timer is now OFF", Toast.LENGTH_SHORT).show();
                 }
                 if (getAnimatorSetQueue().isEmpty() && getRequestJson() != null) {
                     startRequest();
@@ -501,10 +499,6 @@ public class BattleFragment extends Fragment {
         if (getView() == null) {
             return null;
         }
-        String logMessage = message.toString();
-        if (logMessage.equals("upkeep") || logMessage.contains("choice|")) {
-            return new AnimatorSet();
-        }
         TextView textView = (TextView) getView().findViewById(R.id.toast);
 
         ObjectAnimator fadeIn = ObjectAnimator.ofFloat(textView, "alpha", 0f, 1f);
@@ -535,20 +529,16 @@ public class BattleFragment extends Fragment {
         if (mReceivedMessages == null) {
             mReceivedMessages = new ArrayList<>();
         }
-
         if (!mReceivedMessages.contains(message)) {
             mReceivedMessages.add(message);
             LayoutInflater inflater = getLayoutInflater(null);
             View layout = inflater.inflate(R.layout.dialog_custom_chat_toast,
                     (ViewGroup) getView().findViewById(R.id.custom_toast_container));
-
             TextView text = (TextView) layout.findViewById(R.id.user);
             text.setText("User \"" + user + "\" said: ");
             text.setTextColor(ChatRoomFragment.getColorStrong(user));
-
             TextView said = (TextView) layout.findViewById(R.id.message);
             said.setText(message);
-
             Toast toast = new Toast(getContext());
             toast.setDuration(Toast.LENGTH_LONG);
             toast.setView(layout);
@@ -557,26 +547,14 @@ public class BattleFragment extends Fragment {
     }
 
     public AnimatorSet makeToast(final String message) {
-        String logMessage = message.toString();
-        if (logMessage.equals("upkeep") || logMessage.contains("choice|")) {
-            return new AnimatorSet();
-        }
         return makeToast(message, ANIMATION_LONG);
     }
 
     public AnimatorSet makeToast(final String message, final int duration) {
-        String logMessage = message.toString();
-        if (logMessage.equals("upkeep") || logMessage.contains("choice|")) {
-            return new AnimatorSet();
-        }
         return makeToast(new SpannableString(message), duration);
     }
 
     public AnimatorSet makeToast(final Spannable message, final int duration) {
-        String logMessage = message.toString();
-        if (logMessage.equals("upkeep") || logMessage.contains("choice|")) {
-            return new AnimatorSet();
-        }
         if (getView() == null) {
             return null;
         }
@@ -671,10 +649,6 @@ public class BattleFragment extends Fragment {
     }
 
     public void addToLog(Spannable logMessage) {
-        String message = logMessage.toString();
-        if (message.equals("upkeep") || message.contains("choice|")) {
-            return;
-        }
         BattleFieldData.BattleLog battleLog = BattleFieldData.get(getActivity()).getRoomInstance(mRoomId);
         if (battleLog != null && battleLog.isMessageListener()) {
             if (logMessage.length() > 0) {
