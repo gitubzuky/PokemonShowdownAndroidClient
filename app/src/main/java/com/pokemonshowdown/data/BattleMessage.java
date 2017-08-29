@@ -87,10 +87,18 @@ public class BattleMessage {
 
             case "join":
             case "j":
+                toAppend = user + " entered";
+                toast = battleFragment.makeToast(new SpannableString(toAppend));
+                battleFragment.startAnimation(toast, message);
+                logMessage = new SpannableString(toAppend);
                 break;
 
             case "leave":
             case "l":
+                toAppend = user + " left";
+                toast = battleFragment.makeToast(new SpannableString(toAppend));
+                battleFragment.startAnimation(toast, message);
+                logMessage = new SpannableString(toAppend);
                 break;
 
             case "chat":
