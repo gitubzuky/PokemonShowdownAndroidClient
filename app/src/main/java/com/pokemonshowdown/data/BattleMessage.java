@@ -87,6 +87,7 @@ public class BattleMessage {
 
             case "join":
             case "j":
+                String user = split[0];
                 toAppend = user + " entered";
                 toast = battleFragment.makeToast(new SpannableString(toAppend));
                 battleFragment.startAnimation(toast, message);
@@ -95,6 +96,7 @@ public class BattleMessage {
 
             case "leave":
             case "l":
+                String user = split[0];
                 toAppend = user + " left";
                 toast = battleFragment.makeToast(new SpannableString(toAppend));
                 battleFragment.startAnimation(toast, message);
