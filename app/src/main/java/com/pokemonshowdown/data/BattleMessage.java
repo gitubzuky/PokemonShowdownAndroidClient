@@ -512,23 +512,11 @@ public class BattleMessage {
 
                 //TODO need to handle roar & cie
                 toAppendBuilder = new StringBuilder();
-
-                int tempHp;
-                String tempStatus;
-
-                try {
-                    tempHp = processHpFraction(split[2]);
-                    tempStatus = processStatusFraction(split[2]);
-                } catch (ArrayIndexOutOfBoundsException ex) {
-                    tempHp = processHpFraction(split[0]);
-                    tempStatus = processStatusFraction(split[0]);
-                }
-
-
+                
                 final int hp = processHpFraction(split[2]);
                 final String status = processStatusFraction(split[2]);
 
-                final String species = !split[1].contains(",") ? split[1] :
+                String species = !split[1].contains(",") ? split[1] :
                         split[1].substring(0, split[1].indexOf(","));
                 String speciesId = MyApplication.toId(species);
                 pokemonInfo = new PokemonInfo(battleFragment.getActivity(), speciesId);
