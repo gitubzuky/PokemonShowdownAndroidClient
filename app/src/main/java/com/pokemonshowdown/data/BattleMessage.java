@@ -85,6 +85,21 @@ public class BattleMessage {
             case "spectatorLeave":
                 break;
 
+            
+            case "chat":
+            case "c":
+            case "tc":
+            case "c:":
+                String user = split[0];
+                String userMessage = split[1];
+                toAppend = user + ": " + userMessage;
+                toAppendSpannable = new SpannableString(toAppend);
+                toAppendSpannable.setSpan(new ForegroundColorSpan(ChatRoomFragment.getColorStrong(user)),
+                        0, user.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                logMessage = new SpannableString(toAppendSpannable);
+                battleFragment.makeChatToast(user, userMessage);
+                break;
+
             case "join":
             case "j":
                 toAppend = "\"" + user + "\" joined ";
@@ -99,20 +114,6 @@ public class BattleMessage {
                 toast = battleFragment.makeToast(new SpannableString(toAppend));
                 battleFragment.startAnimation(toast, message);
                 logMessage = new SpannableString(toAppend);
-                break;
-
-            case "chat":
-            case "c":
-            case "tc":
-            case "c:":
-                String user = split[0];
-                String userMessage = split[1];
-                toAppend = user + ": " + userMessage;
-                toAppendSpannable = new SpannableString(toAppend);
-                toAppendSpannable.setSpan(new ForegroundColorSpan(ChatRoomFragment.getColorStrong(user)),
-                        0, user.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                logMessage = new SpannableString(toAppendSpannable);
-                battleFragment.makeChatToast(user, userMessage);
                 break;
 
             case "raw":
