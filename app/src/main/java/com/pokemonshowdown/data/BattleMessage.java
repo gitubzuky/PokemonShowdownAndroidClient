@@ -706,12 +706,12 @@ public class BattleMessage {
 
             case "join":
             case "j":
-                toAppend = messageDetails + " joined";
+                toAppend = user + " joined";
                 break;
 
             case "leave":
             case "l":
-                toAppend = messageDetails + " left";
+                toAppend = user + " left";
                 break;
 
             case "tie":
