@@ -85,7 +85,6 @@ public class BattleMessage {
             case "spectatorLeave":
                 break;
 
-            
             case "chat":
             case "c":
             case "tc":
@@ -102,20 +101,12 @@ public class BattleMessage {
 
             case "join":
             case "j":
-                toAppend = user + "joined";
-                toAppendSpannable = new SpannableString(toAppend);
-                toAppendSpannable.setSpan(new ForegroundColorSpan(ChatRoomFragment.getColorStrong(user)),
-                        0, user.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                logMessage = new SpannableString(toAppendSpannable);
+                        toAppendBuilder.append(battleFragment.getPrintable(split[0])).append(" joined" );
                 break;
 
             case "leave":
             case "l":
-                toAppend = user + " left ";
-                toAppendSpannable = new SpannableString(toAppend);
-                toAppendSpannable.setSpan(new ForegroundColorSpan(ChatRoomFragment.getColorStrong(user)),
-                        0, user.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                logMessage = new SpannableString(toAppendSpannable);
+                        toAppendBuilder.append(battleFragment.getPrintable(split[0])).append(" left" );
                 break;
 
             case "raw":
