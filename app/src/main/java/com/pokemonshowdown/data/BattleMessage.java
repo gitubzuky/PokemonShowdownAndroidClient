@@ -99,16 +99,6 @@ public class BattleMessage {
                 battleFragment.makeChatToast(user, userMessage);
                 break;
 
-            case "join":
-            case "j":
-                        toAppendBuilder.append(battleFragment.getPrintable(split[0])).append(" joined" );
-                break;
-
-            case "leave":
-            case "l":
-                        toAppendBuilder.append(battleFragment.getPrintable(split[0])).append(" left" );
-                break;
-
             case "raw":
             case "variation":
             case "chatmsg":
@@ -712,6 +702,16 @@ public class BattleMessage {
                 if (battleFragment.getBattling() != 0) {
                     battleFragment.showEndBattleDialog(toAppend);
                 }
+                break;
+
+            case "join":
+            case "j":
+                toAppend = messageDetails + " joined";
+                break;
+
+            case "leave":
+            case "l":
+                toAppend = messageDetails + " left";
                 break;
 
             case "tie":
