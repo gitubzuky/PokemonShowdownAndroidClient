@@ -85,6 +85,14 @@ public class BattleMessage {
             case "spectatorLeave":
                 break;
 
+            case "join":
+            case "j":
+                break;
+
+            case "leave":
+            case "l":
+                break;
+
             case "chat":
             case "c":
             case "tc":
@@ -702,16 +710,6 @@ public class BattleMessage {
                 if (battleFragment.getBattling() != 0) {
                     battleFragment.showEndBattleDialog(toAppend);
                 }
-                break;
-
-            case "join":
-            case "j":
-                toAppend = user + " joined";
-                break;
-
-            case "leave":
-            case "l":
-                toAppend = user + " left";
                 break;
 
             case "tie":
