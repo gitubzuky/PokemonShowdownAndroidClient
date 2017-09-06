@@ -32,7 +32,6 @@ import com.pokemonshowdown.application.MyApplication;
 import com.pokemonshowdown.data.BattleFieldData;
 import com.pokemonshowdown.data.CommunityLoungeData;
 import com.pokemonshowdown.data.Onboarding;
-import com.pokemonshowdown.replays.ReplayFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -563,10 +562,6 @@ public class BattleFieldActivity extends FragmentActivity {
             case 1:
                 mPosition = 1;
                 fragment = CommunityLoungeFragment.newInstance();
-                break;
-            case 2:
-                mPosition = 2;
-                fragment = ReplayFragment.newInstance();
                 break;
             case 3:
                 mPosition = 3;
