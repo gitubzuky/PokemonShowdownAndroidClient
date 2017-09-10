@@ -293,7 +293,10 @@ public class BattleMessage {
                                     .setImageResource(Pokemon.getPokemonIcon(battleFragment.getActivity(),
                                             MyApplication.toId(pkm.getName())));
                         }
-
+                        for (int i = team1.size(); i < 6; i++) {
+                            ((ImageView) battleFragment.getView().findViewById(battleFragment.getIconId("p1", i)))
+                                    .setImageResource(R.drawable.pokeball_none);
+                        }
                         for (int i = 0; i < team2.size(); i++) {
                             ImageView sprites = (ImageView) battleFragment.getView().findViewById(battleFragment.getTeamPreviewSpriteId("p2", i));
                             PokemonInfo pkm = team2.get(i);
@@ -303,7 +306,10 @@ public class BattleMessage {
                                     .setImageResource(Pokemon.getPokemonIcon(battleFragment.getActivity(),
                                             MyApplication.toId(pkm.getName())));
                         }
-
+                        for (int i = team2.size(); i < 6; i++) {
+                            ((ImageView) battleFragment.getView().findViewById(battleFragment.getIconId("p2", i)))
+                                    .setImageResource(R.drawable.pokeball_none);
+                        }
                         battleFragment.setTeamSize(teamSelectionSizeFinal);
                         battleFragment.getView().findViewById(R.id.p2a_prev)
                                 .setOnClickListener(battleFragment.new PokemonInfoListener(false, 0));
@@ -328,15 +334,17 @@ public class BattleMessage {
                 toAppendBuilder = new StringBuilder();
                 toAppendBuilder.append(battleFragment.getPlayer1()).append("'s Team: ");
                 String[] p1Team = battleFragment.getTeamNameStringArray(team1);
-                for (int i = 0; i < p1Team.length; i++) {
+                for (int i = 0; i < p1Team.length - 1; i++) {
                     toAppendBuilder.append(p1Team[i]).append("/");
                 }
+                toAppendBuilder.append(p1Team[p1Team.length - 1]);
 
                 toAppendBuilder.append("\n").append(battleFragment.getPlayer2()).append("'s Team: ");
                 String[] p2Team = battleFragment.getTeamNameStringArray(team2);
-                for (int i = 0; i < p2Team.length; i++) {
+                for (int i = 0; i < p2Team.length - 1; i++) {
                     toAppendBuilder.append(p2Team[i]).append("/");
                 }
+                toAppendBuilder.append(p2Team[p2Team.length - 1]);
                 toAppendSpannable = new SpannableStringBuilder(toAppendBuilder);
                 logMessage = new SpannableString(toAppendSpannable);
                 break;
