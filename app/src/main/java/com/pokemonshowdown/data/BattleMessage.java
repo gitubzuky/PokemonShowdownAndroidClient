@@ -338,8 +338,8 @@ public class BattleMessage {
                     toAppendBuilder.append(p1Team[1]).append("/");
                     toAppendBuilder.append(p1Team[2]).append("/");
                     toAppendBuilder.append(p1Team[3]).append("/");
-                    toAppendBuilder.append(pTeam[4]).append("/");
-                    toAppendBuilder.append(p2Team[5]).append("/");
+                    toAppendBuilder.append(p1Team[4]).append("/");
+                    toAppendBuilder.append(p1Team[5]).append("/");
 
                 toAppendBuilder.append("\n").append(battleFragment.getPlayer2()).append("'s Team: ");
                 String[] p2Team = battleFragment.getTeamNameStringArray(team2);
