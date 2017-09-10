@@ -334,17 +334,21 @@ public class BattleMessage {
                 toAppendBuilder = new StringBuilder();
                 toAppendBuilder.append(battleFragment.getPlayer1()).append("'s Team: ");
                 String[] p1Team = battleFragment.getTeamNameStringArray(team1);
-                for (int i = 0; i < p1Team.length - 1; i++) {
-                    toAppendBuilder.append(p1Team[i]).append("/");
-                }
-                toAppendBuilder.append(p1Team[p1Team.length - 1]);
+                    toAppendBuilder.append(p1Team[0]).append("/");
+                    toAppendBuilder.append(p1Team[1]).append("/");
+                    toAppendBuilder.append(p1Team[2]).append("/");
+                    toAppendBuilder.append(p1Team[3]).append("/");
+                    toAppendBuilder.append(pTeam[4]).append("/");
+                    toAppendBuilder.append(p2Team[5]).append("/");
 
                 toAppendBuilder.append("\n").append(battleFragment.getPlayer2()).append("'s Team: ");
                 String[] p2Team = battleFragment.getTeamNameStringArray(team2);
-                for (int i = 0; i < p2Team.length - 1; i++) {
-                    toAppendBuilder.append(p2Team[i]).append("/");
-                }
-                toAppendBuilder.append(p2Team[p2Team.length - 1]);
+                    toAppendBuilder.append(p2Team[0]).append("/");
+                    toAppendBuilder.append(p2Team[1]).append("/");
+                    toAppendBuilder.append(p2Team[2]).append("/");
+                    toAppendBuilder.append(p2Team[3]).append("/");
+                    toAppendBuilder.append(p2Team[4]).append("/");
+                    toAppendBuilder.append(p2Team[5]).append("/");
                 toAppendSpannable = new SpannableStringBuilder(toAppendBuilder);
                 logMessage = new SpannableString(toAppendSpannable);
                 break;
