@@ -284,29 +284,29 @@ public class BattleMessage {
                         FrameLayout frameLayout = (FrameLayout) battleFragment.getView().findViewById(R.id.battle_interface);
                         frameLayout.removeAllViews();
                         battleFragment.getActivity().getLayoutInflater().inflate(R.layout.fragment_battle_teampreview, frameLayout);
-                        for (int i = 0; i < team1.size(); i++) {
+                        for (int i = 0; i < t1.size(); i++) {
                             ImageView sprites = (ImageView) battleFragment.getView().findViewById(battleFragment.getTeamPreviewSpriteId("p1", i));
-                            PokemonInfo pkm = team1.get(i);
+                            PokemonInfo pkm = t1.get(i);
                             sprites.setImageResource(Pokemon.getPokemonSprite(battleFragment.getActivity(),
                                     MyApplication.toId(pkm.getName()), true, pkm.isFemale(), pkm.isShiny()));
                             ((ImageView) battleFragment.getView().findViewById(battleFragment.getIconId("p1", i)))
                                     .setImageResource(Pokemon.getPokemonIcon(battleFragment.getActivity(),
                                             MyApplication.toId(pkm.getName())));
                         }
-                        for (int i = team1.size(); i < 6; i++) {
+                        for (int i = t1.size(); i < 6; i++) {
                             ((ImageView) battleFragment.getView().findViewById(battleFragment.getIconId("p1", i)))
                                     .setImageResource(R.drawable.pokeball_none);
                         }
-                        for (int i = 0; i < team2.size(); i++) {
+                        for (int i = 0; i < t2.size(); i++) {
                             ImageView sprites = (ImageView) battleFragment.getView().findViewById(battleFragment.getTeamPreviewSpriteId("p2", i));
-                            PokemonInfo pkm = team2.get(i);
+                            PokemonInfo pkm = t2.get(i);
                             sprites.setImageResource(Pokemon.getPokemonSprite(battleFragment.getActivity(),
                                     MyApplication.toId(pkm.getName()), false, pkm.isFemale(), pkm.isShiny()));
                             ((ImageView) battleFragment.getView().findViewById(battleFragment.getIconId("p2", i)))
                                     .setImageResource(Pokemon.getPokemonIcon(battleFragment.getActivity(),
                                             MyApplication.toId(pkm.getName())));
                         }
-                        for (int i = team2.size(); i < 6; i++) {
+                        for (int i = t2.size(); i < 6; i++) {
                             ((ImageView) battleFragment.getView().findViewById(battleFragment.getIconId("p2", i)))
                                     .setImageResource(R.drawable.pokeball_none);
                         }
@@ -512,6 +512,17 @@ public class BattleMessage {
 
                 //TODO need to handle roar & cie
                 toAppendBuilder = new StringBuilder();
+
+                int tempHp;
+                String tempStatus;
+
+                try {
+                    tempHp = processHpFraction(split[2]);
+                    tempStatus = processStatusFraction(split[2]);
+                } catch (ArrayIndexOutOfBoundsException ex) { // zoroark's transform
+                    tempHp = processHpFraction(split[0]);
+                    tempStatus = processStatusFraction(split[0]);
+                }
                 
                 final int hp = processHpFraction(split[2]);
                 final String status = processStatusFraction(split[2]);
