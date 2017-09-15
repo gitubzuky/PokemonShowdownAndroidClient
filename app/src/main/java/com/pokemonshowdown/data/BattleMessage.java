@@ -227,9 +227,7 @@ public class BattleMessage {
                 if (battleFragment.getPlayer1Team() == null) {
                     battleFragment.setPlayer1Team(new ArrayList<PokemonInfo>());
                 }
-                if (battleFragment.getPlayer2Team() == null) {
                 battleFragment.setPlayer2Team(new ArrayList<PokemonInfo>());
-                }
                 break;
 
             case "poke":
