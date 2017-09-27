@@ -1429,7 +1429,7 @@ public class BattleMessage {
                 toast.addListener(new AnimatorListenerWithNet() {
                     @Override
                     public void onAnimationStartWithNet(Animator animation) {
-                        battleFragment.copyBoost(split[0], split[1]);
+                        battleFragment.copyBoost(split[1], split[0]);
                     }
                 });
                 battleFragment.startAnimation(toast, message);
