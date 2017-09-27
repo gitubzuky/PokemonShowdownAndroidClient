@@ -1404,6 +1404,23 @@ public class BattleMessage {
                 logMessage = new SpannableStringBuilder(toAppendBuilder);
                 break;
 
+            case "-clearnegativeboost":
+                attackerOutputName = battleFragment.getPrintableOutputPokemonSide(split[0]);
+                toAppendBuilder.append(attackerOutputName).append("'s negative stat changes were removed!");
+                toast = battleFragment.makeMinorToast(new SpannableStringBuilder(toAppendBuilder));
+                toast.addListener(new AnimatorListenerWithNet() {
+                    @Override
+                    public void onAnimationStartWithNet(Animator animation) {
+                        if (battleFragment.getView() == null) {
+                            return;
+                        }
+                        battleFragment.clearnegativeBoost(split[0]);
+                    }
+                });
+                battleFragment.startAnimation(toast, message);
+                logMessage = new SpannableStringBuilder(toAppendBuilder);
+                break;
+
             case "-copyboost":
                 attackerOutputName = battleFragment.getPrintableOutputPokemonSide(split[0]);
                 defenderOutputName = battleFragment.getPrintableOutputPokemonSide(split[1], false);
