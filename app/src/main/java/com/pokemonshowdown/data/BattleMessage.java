@@ -1421,6 +1421,23 @@ public class BattleMessage {
                 logMessage = new SpannableStringBuilder(toAppendBuilder);
                 break;
 
+            case "-clearpositiveboost":
+                attackerOutputName = battleFragment.getPrintableOutputPokemonSide(split[0]);
+                toAppendBuilder.append(attackerOutputName).append("'s positive stat changes were removed!");
+                toast = battleFragment.makeMinorToast(new SpannableStringBuilder(toAppendBuilder));
+                toast.addListener(new AnimatorListenerWithNet() {
+                    @Override
+                    public void onAnimationStartWithNet(Animator animation) {
+                        if (battleFragment.getView() == null) {
+                            return;
+                        }
+                        battleFragment.clearpositiveBoost(split[0]);
+                    }
+                });
+                battleFragment.startAnimation(toast, message);
+                logMessage = new SpannableStringBuilder(toAppendBuilder);
+                break;
+
             case "-copyboost":
                 attackerOutputName = battleFragment.getPrintableOutputPokemonSide(split[0]);
                 defenderOutputName = battleFragment.getPrintableOutputPokemonSide(split[1], false);
@@ -2285,15 +2302,33 @@ public class BattleMessage {
 
                     case "powertrick":
                         toAppendBuilder.append(attackerOutputName).append(" switched its Attack and Defense!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "foresight":
                     case "miracleeye":
                         toAppendBuilder.append(attackerOutputName).append(" was identified!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "telekinesis":
                         toAppendBuilder.append(attackerOutputName).append(" was hurled into the air!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "confusion":
@@ -2322,10 +2357,22 @@ public class BattleMessage {
 
                     case "mudsport":
                         toAppendBuilder.append("Electricity's power was weakened!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "watersport":
                         toAppendBuilder.append("Fire's power was weakened!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "yawn":
@@ -2381,6 +2428,12 @@ public class BattleMessage {
 
                     case "embargo":
                         toAppendBuilder.append(attackerOutputName).append(" can't use items anymore!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "ingrain":
@@ -2405,30 +2458,72 @@ public class BattleMessage {
 
                     case "stockpile1":
                         toAppendBuilder.append(attackerOutputName).append(" stockpiled 1!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "stockpile2":
                         toAppendBuilder.append(attackerOutputName).append(" stockpiled 2!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "stockpile3":
                         toAppendBuilder.append(attackerOutputName).append(" stockpiled 3!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "perish0":
                         toAppendBuilder.append(attackerOutputName).append("'s perish count fell to 0.");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "perish1":
                         toAppendBuilder.append(attackerOutputName).append("'s perish count fell to 1.");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "perish2":
                         toAppendBuilder.append(attackerOutputName).append("'s perish count fell to 2.");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "perish3":
                         toAppendBuilder.append(attackerOutputName).append("'s perish count fell to 3.");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "encore":
@@ -2443,6 +2538,12 @@ public class BattleMessage {
 
                     case "bide":
                         toAppendBuilder.append(attackerOutputName).append(" is storing energy!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "slowstart":
@@ -2481,6 +2582,12 @@ public class BattleMessage {
 
                     case "focusenergy":
                         toAppendBuilder.append(attackerOutputName).append(" is getting pumped!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "curse":
@@ -2562,6 +2669,12 @@ public class BattleMessage {
                         } else {
                             toAppendBuilder.append(attackerOutputName).append(" caused an uproar!");
                         }
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "doomdesire":
@@ -2591,10 +2704,22 @@ public class BattleMessage {
                     case "followme":
                     case "ragepowder":
                         toAppendBuilder.append(attackerOutputName).append(" became the center of attention!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     case "powder":
                         toAppendBuilder.append(attackerOutputName).append(" is covered in powder!");
+                            animatorSet.addListener(new AnimatorListenerWithNet() {
+                                @Override
+                                public void onAnimationStartWithNet(Animator animation) {
+                                    battleFragment.setAddonStatus(split[0], newEffect);
+                            }
+                        });
                         break;
 
                     default:
