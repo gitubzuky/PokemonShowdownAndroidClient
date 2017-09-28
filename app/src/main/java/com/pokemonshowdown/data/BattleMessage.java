@@ -1446,6 +1446,14 @@ public class BattleMessage {
                 toast.addListener(new AnimatorListenerWithNet() {
                     @Override
                     public void onAnimationStartWithNet(Animator animation) {
+                        if (battleFragment.getView() == null) {
+                            return;
+                        }
+                        LinearLayout linearLayout = (LinearLayout) battleFragment.getView().findViewById(battleFragment.getTempStatusId(split[0]));
+                        for (String stat : BattleFragment.STATS) {
+                            TextView v = (TextView) linearLayout.findViewWithTag(stat);
+                            linearLayout.removeView(v);
+                        }
                         battleFragment.copyBoost(split[1], split[0]);
                     }
                 });
@@ -2458,72 +2466,30 @@ public class BattleMessage {
 
                     case "stockpile1":
                         toAppendBuilder.append(attackerOutputName).append(" stockpiled 1!");
-                            animatorSet.addListener(new AnimatorListenerWithNet() {
-                                @Override
-                                public void onAnimationStartWithNet(Animator animation) {
-                                    battleFragment.setAddonStatus(split[0], newEffect);
-                            }
-                        });
                         break;
 
                     case "stockpile2":
                         toAppendBuilder.append(attackerOutputName).append(" stockpiled 2!");
-                            animatorSet.addListener(new AnimatorListenerWithNet() {
-                                @Override
-                                public void onAnimationStartWithNet(Animator animation) {
-                                    battleFragment.setAddonStatus(split[0], newEffect);
-                            }
-                        });
                         break;
 
                     case "stockpile3":
                         toAppendBuilder.append(attackerOutputName).append(" stockpiled 3!");
-                            animatorSet.addListener(new AnimatorListenerWithNet() {
-                                @Override
-                                public void onAnimationStartWithNet(Animator animation) {
-                                    battleFragment.setAddonStatus(split[0], newEffect);
-                            }
-                        });
                         break;
 
                     case "perish0":
                         toAppendBuilder.append(attackerOutputName).append("'s perish count fell to 0.");
-                            animatorSet.addListener(new AnimatorListenerWithNet() {
-                                @Override
-                                public void onAnimationStartWithNet(Animator animation) {
-                                    battleFragment.setAddonStatus(split[0], newEffect);
-                            }
-                        });
                         break;
 
                     case "perish1":
                         toAppendBuilder.append(attackerOutputName).append("'s perish count fell to 1.");
-                            animatorSet.addListener(new AnimatorListenerWithNet() {
-                                @Override
-                                public void onAnimationStartWithNet(Animator animation) {
-                                    battleFragment.setAddonStatus(split[0], newEffect);
-                            }
-                        });
                         break;
 
                     case "perish2":
                         toAppendBuilder.append(attackerOutputName).append("'s perish count fell to 2.");
-                            animatorSet.addListener(new AnimatorListenerWithNet() {
-                                @Override
-                                public void onAnimationStartWithNet(Animator animation) {
-                                    battleFragment.setAddonStatus(split[0], newEffect);
-                            }
-                        });
                         break;
 
                     case "perish3":
                         toAppendBuilder.append(attackerOutputName).append("'s perish count fell to 3.");
-                            animatorSet.addListener(new AnimatorListenerWithNet() {
-                                @Override
-                                public void onAnimationStartWithNet(Animator animation) {
-                                    battleFragment.setAddonStatus(split[0], newEffect);
-                            }
-                        });
                         break;
 
                     case "encore":
