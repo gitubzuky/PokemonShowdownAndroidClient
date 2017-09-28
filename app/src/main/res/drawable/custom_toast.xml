@@ -8,10 +8,10 @@
 
     <solid
         android:color="#ffcfc3cb"
-        android:paddingLeft="4dp"
-        android:paddingTop="4dp"/>
+        android:paddingLeft="2dp"
+        android:paddingTop="2dp"/>
 
-    <corners android:radius="4dp"/>
+    <corners android:radius="2dp"/>
 
     <padding
         android:bottom="2dp"
