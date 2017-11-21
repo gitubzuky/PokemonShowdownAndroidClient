@@ -2121,12 +2121,12 @@ public class BattleFragment extends Fragment {
 
                 CheckBox checkBox = (CheckBox) getView().findViewById(R.id.mega_evolution_checkbox);
 
-                CheckBox checkBox = (CheckBox) getView().findViewById(R.id.ultraburst_checkbox);
+                CheckBox UltraBurstcheckBox = (CheckBox) getView().findViewById(R.id.ultraburst_checkbox);
                 if (checkBox.isChecked()) {
                     command = "move " + (moveId + 1) + " mega";
                 } else if (zMovecheckBox.isChecked()) {
                     command = "move " + (moveId + 1) + " zmove";
-                } else if (ultraburstcheckBox.isChecked()) {
+                } else if (UltraBurstcheckBox.isChecked()) {
                     command = "move " + (moveId + 1) + " mega";
                 } else {
                     command = "move " + (moveId + 1);
