@@ -1840,9 +1840,12 @@ public class BattleFragment extends Fragment {
 
         CheckBox megaevocheckBox = (CheckBox) getView().findViewById(R.id.mega_evolution_checkbox);
         CheckBox zmovecheckBox = (CheckBox) getView().findViewById(R.id.zmove_checkbox);
+        CheckBox ultraburstcheckBox = (CheckBox) getView().findViewById(R.id.ultraburst_checkbox);
 
         megaevocheckBox.setChecked(false);
         zmovecheckBox.setChecked(false);
+        ultraburstcheckBox.setChecked(false);
+
 
         try {
             final JSONObject currentActive = active.getJSONObject(mCurrentActivePokemon);
@@ -1851,6 +1854,13 @@ public class BattleFragment extends Fragment {
                 megaevocheckBox.setVisibility(View.VISIBLE);
             } else {
                 megaevocheckBox.setVisibility(View.GONE);
+            }
+
+
+            if (currentActive.optBoolean("canUltraBurst", false)) {
+                ultraburstcheckBox.setVisibility(View.VISIBLE);
+            } else {
+                ultraburstcheckBox.setVisibility(View.GONE);
             }
 
             if (currentActive.optJSONArray("canZMove") != null) {
@@ -2110,10 +2120,14 @@ public class BattleFragment extends Fragment {
                 CheckBox zMovecheckBox = (CheckBox) getView().findViewById(R.id.zmove_checkbox);
 
                 CheckBox checkBox = (CheckBox) getView().findViewById(R.id.mega_evolution_checkbox);
+
+                CheckBox checkBox = (CheckBox) getView().findViewById(R.id.ultraburst_checkbox);
                 if (checkBox.isChecked()) {
                     command = "move " + (moveId + 1) + " mega";
                 } else if (zMovecheckBox.isChecked()) {
                     command = "move " + (moveId + 1) + " zmove";
+                } else if (ultraburstcheckBox.isChecked()) {
+                    command = "move " + (moveId + 1) + " mega";
                 } else {
                     command = "move " + (moveId + 1);
                 }
