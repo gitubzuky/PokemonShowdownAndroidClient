@@ -2127,7 +2127,7 @@ public class BattleFragment extends Fragment {
                 } else if (zMovecheckBox.isChecked()) {
                     command = "move " + (moveId + 1) + " zmove";
                 } else if (UltraBurstcheckBox.isChecked()) {
-                    command = "move " + (moveId + 1) + " burst";
+                    command = "move " + (moveId + mega);
                 } else {
                     command = "move " + (moveId + 1);
                 }
