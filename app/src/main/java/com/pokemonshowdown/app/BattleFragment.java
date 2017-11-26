@@ -1819,6 +1819,9 @@ public class BattleFragment extends Fragment {
                 String type = MoveDex.get(getContext()).getMoveJsonObject(moveJson.getString("id")).getString("type");
 
                 int typeIcon = MoveDex.getMoveTypeIcon(getActivity(), moveJson.getString("id"));
+
+                int typeIcon = getMoveIcon(type);
+
                 moveIcons[i].setImageResource(typeIcon);
                 moveViews[i].setOnClickListener(parseMoveTarget(active, isZMove, i));
 
