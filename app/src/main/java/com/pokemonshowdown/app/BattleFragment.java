@@ -1887,6 +1887,69 @@ public class BattleFragment extends Fragment {
 
     }
 
+    private int getMoveIcon(String type) {
+        int res = 0;
+
+        switch (type.toLowerCase()) {
+            case "bug":
+                res = R.drawable.types_bug;
+                break;
+            case "dark":
+                res = R.drawable.types_dark;
+                break;
+            case "dragon":
+                res = R.drawable.types_dragon;
+                break;
+            case "electric":
+                res = R.drawable.types_electric;
+                break;
+            case "fairy":
+                res = R.drawable.types_fairy;
+                break;
+            case "fighting":
+                res = R.drawable.types_fighting;
+                break;
+            case "fire":
+                res = R.drawable.types_fire;
+                break;
+            case "flying":
+                res = R.drawable.types_flying;
+                break;
+            case "ghost":
+                res = R.drawable.types_ghost;
+                break;
+            case "grass":
+                res = R.drawable.types_grass;
+                break;
+            case "ground":
+                res = R.drawable.types_ground;
+                break;
+            case "ice":
+                res = R.drawable.types_ice;
+                break;
+            case "normal":
+                res = R.drawable.types_normal;
+                break;
+            case "poison":
+                res = R.drawable.types_poison;
+                break;
+            case "psychic":
+                res = R.drawable.types_psychic;
+                break;
+            case "rock":
+                res = R.drawable.types_rock;
+                break;
+            case "steel":
+                res = R.drawable.types_steel;
+                break;
+            case "water":
+                res = R.drawable.types_water;
+                break;
+        }
+
+        return res;
+    }
+
     private int getMoveBackground(String type) {
         int res = 0;
 
