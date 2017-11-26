@@ -1820,8 +1820,6 @@ public class BattleFragment extends Fragment {
 
                 int typeIcon = MoveDex.getMoveTypeIcon(getActivity(), moveJson.getString("id"));
 
-                int typeIcon = getMoveIcon(type);
-
                 moveIcons[i].setImageResource(typeIcon);
                 moveViews[i].setOnClickListener(parseMoveTarget(active, isZMove, i));
 
@@ -1864,26 +1862,12 @@ public class BattleFragment extends Fragment {
                     moveViews[i].setBackgroundResource(getMoveBackground(type));
                 }
 
-                moveViews[i].setOnLongClickListener(new View.OnLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View v) {
-                        try {
-                            MoveInfoDialog.newInstance(moveJson.getString("move"))
-                                    .show(getActivity().getSupportFragmentManager(), BTAG);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        return false;
-                    }
-                });
-
                 if (moveJson.optBoolean("disabled", false)) {
                     moveViews[i].setOnClickListener(null);
                     moveViews[i].setBackgroundResource(R.drawable.uneditable_frame);
                 }
             }
         }
-
 
     }
 
