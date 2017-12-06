@@ -1835,26 +1835,18 @@ public class BattleFragment extends Fragment {
                     String arceus = getCurrentActivePokemon().getName().substring(7, getCurrentActivePokemon().getName().length());
                     moveViews[i].setBackgroundResource(getMoveBackground(arceus));
                     moveIcons[i].setImageResource(getMoveIcon(arceus.toLowerCase()));
-                } else if (type.equals("Normal") && ability.equals("Aerilate") || ability.equals("Pixilate") || ability.equals("Galvanize") ||
-                        ability.equals("Refrigerate")) {
-                    switch (ability) {
-                        case "Aerilate":
+                } else if (type.equals("Normal") && ability.equals("Aerilate") {
                             moveViews[i].setBackgroundResource(getMoveBackground("flying"));
                             moveIcons[i].setImageResource(getMoveIcon("flying"));
-                            break;
-                        case "Pixilate":
+                } else if (type.equals("Normal") && ability.equals("Pixilate") {
                             moveViews[i].setBackgroundResource(getMoveBackground("fairy"));
                             moveIcons[i].setImageResource(getMoveIcon("fairy"));
-                            break;
-                        case "Galvanize":
+                } else if (type.equals("Normal") && ability.equals("Galvanize") {
                             moveViews[i].setBackgroundResource(getMoveBackground("electric"));
                             moveIcons[i].setImageResource(getMoveIcon("electric"));
-                            break;
-                        case "Refrigerate":
+                } else if (type.equals("Normal") && ability.equals("Refrigerate") {
                             moveViews[i].setBackgroundResource(getMoveBackground("ice"));
                             moveIcons[i].setImageResource(getMoveIcon("ice"));
-                            break;
-                    }
                 } else if (ability.equals("Normalize")) {
                     moveViews[i].setBackgroundResource(getMoveBackground("normal"));
                     moveIcons[i].setImageResource(getMoveIcon("normal"));
