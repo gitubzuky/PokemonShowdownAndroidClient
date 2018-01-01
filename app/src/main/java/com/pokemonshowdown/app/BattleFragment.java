@@ -1845,16 +1845,16 @@ public class BattleFragment extends Fragment {
                     String oricorio = getCurrentActivePokemon().getName().substring(7, getCurrentActivePokemon().getName().length());
                     moveViews[i].setBackgroundResource(getMoveBackground(oricorio));
                     moveIcons[i].setImageResource(getMoveIcon(oricorio.toLowerCase()));
-                } else if (type.equals("Normal") && ability.equals("Aerilate") {
+                } else if (type.equals("Normal") && ability.equals("Aerilate")) {
                             moveViews[i].setBackgroundResource(getMoveBackground("flying"));
                             moveIcons[i].setImageResource(getMoveIcon("flying"));
-                } else if (type.equals("Normal") && ability.equals("Pixilate") {
+                } else if (type.equals("Normal") && ability.equals("Pixilate")) {
                             moveViews[i].setBackgroundResource(getMoveBackground("fairy"));
                             moveIcons[i].setImageResource(getMoveIcon("fairy"));
-                } else if (type.equals("Normal") && ability.equals("Galvanize") {
+                } else if (type.equals("Normal") && ability.equals("Galvanize")) {
                             moveViews[i].setBackgroundResource(getMoveBackground("electric"));
                             moveIcons[i].setImageResource(getMoveIcon("electric"));
-                } else if (type.equals("Normal") && ability.equals("Refrigerate") {
+                } else if (type.equals("Normal") && ability.equals("Refrigerate")) {
                             moveViews[i].setBackgroundResource(getMoveBackground("ice"));
                             moveIcons[i].setImageResource(getMoveIcon("ice"));
                 } else if (ability.equals("Normalize")) {
