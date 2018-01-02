@@ -263,6 +263,7 @@ public class ChatRoomFragment extends android.support.v4.app.Fragment {
                 appendUserMessage(userStamp, userMessageStamp);
                 break;
             case "raw":
+            case "html":
                 appendUserMessage("YOUR BELOVED SERVER", Html.fromHtml(messageDetails).toString());
                 break;
             default:
