@@ -1835,16 +1835,6 @@ public class BattleFragment extends Fragment {
                     String arceus = getCurrentActivePokemon().getName().substring(7, getCurrentActivePokemon().getName().length());
                     moveViews[i].setBackgroundResource(getMoveBackground(arceus));
                     moveIcons[i].setImageResource(getMoveIcon(arceus.toLowerCase()));
-                } else if (moveJson.getString("move").contains("Multi-Attack") && getCurrentActivePokemon().getName()
-                        .contains("Silvally") && getCurrentActivePokemon().getItemName(getContext()).contains("Memory")) {
-                    String silvally = getCurrentActivePokemon().getName().substring(7, getCurrentActivePokemon().getName().length());
-                    moveViews[i].setBackgroundResource(getMoveBackground(silvally));
-                    moveIcons[i].setImageResource(getMoveIcon(silvally.toLowerCase()));
-                } else if (moveJson.getString("move").contains("Revelation Dance") && getCurrentActivePokemon().getName()
-                        .contains("Oricorio")) {
-                    String oricorio = getCurrentActivePokemon().getName().substring(7, getCurrentActivePokemon().getName().length());
-                    moveViews[i].setBackgroundResource(getMoveBackground(oricorio));
-                    moveIcons[i].setImageResource(getMoveIcon(oricorio.toLowerCase()));
                 } else if (type.equals("Normal") && ability.equals("Aerilate")) {
                             moveViews[i].setBackgroundResource(getMoveBackground("flying"));
                             moveIcons[i].setImageResource(getMoveIcon("flying"));
