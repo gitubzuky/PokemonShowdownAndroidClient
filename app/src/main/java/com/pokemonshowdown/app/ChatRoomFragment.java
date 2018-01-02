@@ -242,6 +242,9 @@ public class ChatRoomFragment extends android.support.v4.app.Fragment {
             case "b":
             case "B":
                 break;
+            case "uhtml":
+            case "tournament":
+                break;
             case "chat":
             case "c":
                 separator = messageDetails.indexOf('|');
