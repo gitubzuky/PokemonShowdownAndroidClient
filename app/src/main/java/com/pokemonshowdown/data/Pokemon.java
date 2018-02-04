@@ -570,7 +570,7 @@ public class Pokemon implements Serializable {
     public static String getPokemonName(Context appContext, String name) {
         try {
             JSONObject jsonObject = Pokedex.get(appContext).getPokemonJSONObject(name);
-            return jsonObject.getString("species");
+            return jsonObject.getString("name");
         } catch (JSONException e) {
             Log.d(PTAG, e.toString());
         } catch (NullPointerException e) {
