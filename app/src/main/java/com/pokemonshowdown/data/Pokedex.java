@@ -20,8 +20,10 @@ public class Pokedex {
     public final static String PTAG = Pokedex.class.getName();
     private static Pokedex sPokedex;
     private HashMap<String, String> mPokedexEntries;
+    private Context context;
 
     private Pokedex(Context appContext) {
+        context = appContext;
         mPokedexEntries = readFile(appContext);
     }
 
@@ -29,7 +31,12 @@ public class Pokedex {
         HashMap<String, String> pokedexEntries = new HashMap<>();
         String jsonString;
         try {
-            InputStream inputStream = appContext.getResources().openRawResource(R.raw.pokedex);
+            InputStream inputStream = null;
+            if (Onboarding.get(context).isChineseEnable()){
+                inputStream = appContext.getResources().openRawResource(R.raw.pokedex_zh);
+            } else {
+                inputStream = appContext.getResources().openRawResource(R.raw.pokedex);
+            }
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder stringBuilder = new StringBuilder();
 

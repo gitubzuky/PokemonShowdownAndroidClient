@@ -20,8 +20,10 @@ public class AbilityDex {
     public final static String ATAG = AbilityDex.class.getName();
     private static AbilityDex sAbilityDex;
     private HashMap<String, String> mAbilityDexEntries;
+    private Context context;
 
     private AbilityDex(Context appContext) {
+        context = appContext;
         mAbilityDexEntries = readFile(appContext);
     }
 
@@ -29,7 +31,12 @@ public class AbilityDex {
         HashMap<String, String> AbilityDexEntries = new HashMap<>();
         String jsonString;
         try {
-            InputStream inputStream = appContext.getResources().openRawResource(R.raw.ability);
+            InputStream inputStream = null;
+            if (Onboarding.get(context).isChineseEnable()){
+                inputStream = appContext.getResources().openRawResource(R.raw.ability_zh);
+            } else {
+                inputStream = appContext.getResources().openRawResource(R.raw.ability);
+            }
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder stringBuilder = new StringBuilder();
 

@@ -21,8 +21,10 @@ public class MoveDex {
     private static MoveDex sMoveDex;
     private HashMap<String, String> mMoveDexEntries;
     private HashMap<String, Moves> mMoveAnimationEntries;
+    private Context context;
 
     private MoveDex(Context appContext) {
+        context = appContext;
         mMoveDexEntries = readFile(appContext);
         initializeAnimationEntries();
     }
@@ -31,7 +33,12 @@ public class MoveDex {
         HashMap<String, String> MoveDexEntries = new HashMap<>();
         String jsonString;
         try {
-            InputStream inputStream = appContext.getResources().openRawResource(R.raw.moves);
+            InputStream inputStream = null;
+            if (Onboarding.get(context).isChineseEnable()){
+                inputStream = appContext.getResources().openRawResource(R.raw.moves_zh);
+            } else {
+                inputStream = appContext.getResources().openRawResource(R.raw.moves);
+            }
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder stringBuilder = new StringBuilder();
 

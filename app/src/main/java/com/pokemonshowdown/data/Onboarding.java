@@ -27,6 +27,7 @@ public class Onboarding {
 
     private static final String PROPERTIES_FILE = "showdown.properties";
 
+    public static final String CHINESE_HEADER = "chinese";
     public static final String ANIM_HEADER = "animation";
     public static final String COOKIES_HEADER = "cookie";
     public static final String ADV_HEADER = "advertising";
@@ -196,6 +197,22 @@ public class Onboarding {
             saveProperties();
             return true;
         }
+    }
+
+    public boolean isChineseEnable() {
+        if (mAppProperties.getProperty(CHINESE_HEADER) != null) {
+            return Boolean.parseBoolean(mAppProperties.getProperty(CHINESE_HEADER));
+        } else {
+            // is by default true
+            mAppProperties.setProperty(CHINESE_HEADER, Boolean.toString(false));
+            saveProperties();
+            return true;
+        }
+    }
+
+    public void setChineseEnable(boolean chineseEnable) {
+        mAppProperties.setProperty(CHINESE_HEADER, Boolean.toString(chineseEnable));
+        saveProperties();
     }
 
     public void setAnimation(boolean animation) {

@@ -27,6 +27,7 @@
     <!-- Need to update server destination in WelcomeActivity.java as well -->
     <string-array name="server">
         <item>Smogon University (official server)</item>
+        <item>PS 国服(official server)</item>
         <item>Smogon Tournaments</item>
     </string-array>
 
@@ -247,4 +248,5 @@
     <string name="animation">Animation</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="use_z_move">Use Z-Move</string>
+    <string name="trans_zh">Chinese</string>
 </resources>

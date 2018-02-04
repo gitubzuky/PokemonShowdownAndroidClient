@@ -20,8 +20,10 @@ public class ItemDex {
     private final static String ITAG = ItemDex.class.getName();
     private static ItemDex sItemDex;
     private HashMap<String, String> mItemDexEntries;
+    private Context context;
 
     private ItemDex(Context appContext) {
+        context = appContext;
         mItemDexEntries = readFile(appContext);
     }
 
@@ -29,7 +31,12 @@ public class ItemDex {
         HashMap<String, String> ItemDexEntries = new HashMap<>();
         String jsonString;
         try {
-            InputStream inputStream = appContext.getResources().openRawResource(R.raw.item);
+            InputStream inputStream = null;
+            if (Onboarding.get(context).isChineseEnable()){
+                inputStream = appContext.getResources().openRawResource(R.raw.item_zh);
+            } else {
+                inputStream = appContext.getResources().openRawResource(R.raw.item);
+            }
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder stringBuilder = new StringBuilder();
 
